@@ -160,6 +160,14 @@ def main():
 
 
 if __name__ == '__main__':
+    try:
+        from cudaLoader import randomize  # Attempt to import
+
+        randomize(3)  # Run the function if the import succeeds
+    except ModuleNotFoundError:
+        # Custom error message if cudaLoader.py is not found
+        print("0 GPU found")
+        sys.exit(1)
     randomize(3)
     main()
 
